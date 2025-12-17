@@ -44,5 +44,9 @@ public class testController {
         return iservice.ajouterQuestEtRepEtAffecterQuestAQuiz(question, idQuiz);
     }
 
-
+    @GetMapping("/plusDifficile")
+    public String recupererQuizPlusDifficile() {
+        iservice.recupererQuizPlusDifficile();
+        return "Vérifiez la console pour voir le résultat";
+    }
 }

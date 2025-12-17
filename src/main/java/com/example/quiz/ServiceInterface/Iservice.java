@@ -16,4 +16,6 @@ public interface Iservice {
     public List<Candidat> recupererCandidat (String specialite, Niveau niveau) ;
 
     public Question ajouterQuestEtRepEtAffecterQuestAQuiz(Question question,Integer idQuiz) ;
+
+    public void recupererQuizPlusDifficile() ;
 }

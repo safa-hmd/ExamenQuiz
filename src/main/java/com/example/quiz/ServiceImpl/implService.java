@@ -7,6 +7,7 @@ import com.example.quiz.Repository.QuizRepository;
 import com.example.quiz.Repository.ReponseRepository;
 import com.example.quiz.ServiceInterface.Iservice;
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -67,5 +68,17 @@ public class implService implements Iservice {
         return q;
     }
 
+    @Scheduled(fixedRate = 30000) // 30 secondes
+    @Override
+    public void recupererQuizPlusDifficile() {
+
+        List<Quiz> quizs = quizRepository.findQuizPlusDifficile();
+
+        if (!quizs.isEmpty()) {
+            System.out.println(
+                    "Quiz le plus difficile : " + quizs.get(0).getTitreQuiz()
+            );
+        }
+    }
 
 }
