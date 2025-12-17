@@ -2,6 +2,7 @@ package com.example.quiz.Controller;
 
 import com.example.quiz.Entity.Candidat;
 import com.example.quiz.Entity.Niveau;
+import com.example.quiz.Entity.Question;
 import com.example.quiz.Entity.Quiz;
 import com.example.quiz.ServiceInterface.Iservice;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -37,4 +38,11 @@ public class testController {
     public List<Candidat> recupererCandidat(@RequestParam String specialite,@RequestParam Niveau niveau) {
         return iservice.recupererCandidat(specialite, niveau);
     }
+
+    @PostMapping("/questions/quiz/{idQuiz}")
+    public Question ajouterQuestEtRepEtAffecterQuestAQuiz(@RequestBody Question question, @PathVariable Integer idQuiz) {
+        return iservice.ajouterQuestEtRepEtAffecterQuestAQuiz(question, idQuiz);
+    }
+
+
 }
